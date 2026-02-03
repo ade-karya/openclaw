@@ -62,14 +62,14 @@ services:
     environment:
       HOME: /home/node
       TERM: xterm-256color
-      OPENCLAW_GATEWAY_TOKEN: openclaw-local-token-3
+      OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN_3}
       ZAI_API_KEY: ${ZAI_API_KEY}
     volumes:
-      - C:/Users/adeka/.openclaw3:/home/node/.openclaw
-      - C:/Users/adeka/.openclaw3/workspace:/home/node/.openclaw/workspace
+      - ${OPENCLAW_CONFIG_DIR_3}:/home/node/.openclaw
+      - ${OPENCLAW_WORKSPACE_DIR_3}:/home/node/.openclaw/workspace
     ports:
-      - "18893:18893"
-      - "18894:18894"
+      - "${OPENCLAW_GATEWAY_PORT_3}:${OPENCLAW_GATEWAY_PORT_3}"
+      - "${OPENCLAW_BRIDGE_PORT_3}:${OPENCLAW_BRIDGE_PORT_3}"
     init: true
     restart: unless-stopped
     command:
@@ -88,14 +88,14 @@ services:
     environment:
       HOME: /home/node
       TERM: xterm-256color
-      OPENCLAW_GATEWAY_TOKEN: openclaw-local-token-4
+      OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN_4}
       ZAI_API_KEY: ${ZAI_API_KEY}
     volumes:
-      - C:/Users/adeka/.openclaw4:/home/node/.openclaw
-      - C:/Users/adeka/.openclaw4/workspace:/home/node/.openclaw/workspace
+      - ${OPENCLAW_CONFIG_DIR_4}:/home/node/.openclaw
+      - ${OPENCLAW_WORKSPACE_DIR_4}:/home/node/.openclaw/workspace
     ports:
-      - "18895:18895"
-      - "18896:18896"
+      - "${OPENCLAW_GATEWAY_PORT_4}:${OPENCLAW_GATEWAY_PORT_4}"
+      - "${OPENCLAW_BRIDGE_PORT_4}:${OPENCLAW_BRIDGE_PORT_4}"
     init: true
     restart: unless-stopped
     command:
@@ -114,14 +114,14 @@ services:
     environment:
       HOME: /home/node
       TERM: xterm-256color
-      OPENCLAW_GATEWAY_TOKEN: openclaw-local-token-5
+      OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN_5}
       ZAI_API_KEY: ${ZAI_API_KEY}
     volumes:
-      - C:/Users/adeka/.openclaw5:/home/node/.openclaw
-      - C:/Users/adeka/.openclaw5/workspace:/home/node/.openclaw/workspace
+      - ${OPENCLAW_CONFIG_DIR_5}:/home/node/.openclaw
+      - ${OPENCLAW_WORKSPACE_DIR_5}:/home/node/.openclaw/workspace
     ports:
-      - "18897:18897"
-      - "18898:18898"
+      - "${OPENCLAW_GATEWAY_PORT_5}:${OPENCLAW_GATEWAY_PORT_5}"
+      - "${OPENCLAW_BRIDGE_PORT_5}:${OPENCLAW_BRIDGE_PORT_5}"
     init: true
     restart: unless-stopped
     command:
@@ -140,14 +140,14 @@ services:
     environment:
       HOME: /home/node
       TERM: xterm-256color
-      OPENCLAW_GATEWAY_TOKEN: openclaw-local-token-6
+      OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN_6}
       ZAI_API_KEY: ${ZAI_API_KEY}
     volumes:
-      - C:/Users/adeka/.openclaw6:/home/node/.openclaw
-      - C:/Users/adeka/.openclaw6/workspace:/home/node/.openclaw/workspace
+      - ${OPENCLAW_CONFIG_DIR_6}:/home/node/.openclaw
+      - ${OPENCLAW_WORKSPACE_DIR_6}:/home/node/.openclaw/workspace
     ports:
-      - "18899:18899"
-      - "18900:18900"
+      - "${OPENCLAW_GATEWAY_PORT_6}:${OPENCLAW_GATEWAY_PORT_6}"
+      - "${OPENCLAW_BRIDGE_PORT_6}:${OPENCLAW_BRIDGE_PORT_6}"
     init: true
     restart: unless-stopped
     command:
