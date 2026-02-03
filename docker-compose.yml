@@ -8,6 +8,7 @@ services:
       CLAUDE_AI_SESSION_KEY: ${CLAUDE_AI_SESSION_KEY}
       CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
       CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
+      ZAI_API_KEY: ${ZAI_API_KEY}
     volumes:
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
@@ -27,6 +28,139 @@ services:
         "18789",
       ]
 
+  openclaw-gateway-2:
+    image: ${OPENCLAW_IMAGE:-openclaw:local}
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN_2:-openclaw-local-token-2}
+      CLAUDE_AI_SESSION_KEY: ${CLAUDE_AI_SESSION_KEY}
+      CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
+      CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
+      ZAI_API_KEY: ${ZAI_API_KEY}
+    volumes:
+      - ${OPENCLAW_CONFIG_DIR_2:-C:/Users/adeka/.openclaw2}:/home/node/.openclaw
+      - ${OPENCLAW_WORKSPACE_DIR_2:-C:/Users/adeka/.openclaw2/workspace}:/home/node/.openclaw/workspace
+    ports:
+      - "${OPENCLAW_GATEWAY_PORT_2:-18891}:18891"
+      - "${OPENCLAW_BRIDGE_PORT_2:-18892}:18892"
+    init: true
+    restart: unless-stopped
+    command:
+      [
+        "node",
+        "dist/index.js",
+        "gateway",
+        "--bind",
+        "${OPENCLAW_GATEWAY_BIND:-lan}",
+        "--port",
+        "18891",
+      ]
+
+  openclaw-gateway-3:
+    image: ${OPENCLAW_IMAGE:-openclaw:local}
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OPENCLAW_GATEWAY_TOKEN: openclaw-local-token-3
+      ZAI_API_KEY: ${ZAI_API_KEY}
+    volumes:
+      - C:/Users/adeka/.openclaw3:/home/node/.openclaw
+      - C:/Users/adeka/.openclaw3/workspace:/home/node/.openclaw/workspace
+    ports:
+      - "18893:18893"
+      - "18894:18894"
+    init: true
+    restart: unless-stopped
+    command:
+      [
+        "node",
+        "dist/index.js",
+        "gateway",
+        "--bind",
+        "lan",
+        "--port",
+        "18893",
+      ]
+
+  openclaw-gateway-4:
+    image: ${OPENCLAW_IMAGE:-openclaw:local}
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OPENCLAW_GATEWAY_TOKEN: openclaw-local-token-4
+      ZAI_API_KEY: ${ZAI_API_KEY}
+    volumes:
+      - C:/Users/adeka/.openclaw4:/home/node/.openclaw
+      - C:/Users/adeka/.openclaw4/workspace:/home/node/.openclaw/workspace
+    ports:
+      - "18895:18895"
+      - "18896:18896"
+    init: true
+    restart: unless-stopped
+    command:
+      [
+        "node",
+        "dist/index.js",
+        "gateway",
+        "--bind",
+        "lan",
+        "--port",
+        "18895",
+      ]
+
+  openclaw-gateway-5:
+    image: ${OPENCLAW_IMAGE:-openclaw:local}
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OPENCLAW_GATEWAY_TOKEN: openclaw-local-token-5
+      ZAI_API_KEY: ${ZAI_API_KEY}
+    volumes:
+      - C:/Users/adeka/.openclaw5:/home/node/.openclaw
+      - C:/Users/adeka/.openclaw5/workspace:/home/node/.openclaw/workspace
+    ports:
+      - "18897:18897"
+      - "18898:18898"
+    init: true
+    restart: unless-stopped
+    command:
+      [
+        "node",
+        "dist/index.js",
+        "gateway",
+        "--bind",
+        "lan",
+        "--port",
+        "18897",
+      ]
+
+  openclaw-gateway-6:
+    image: ${OPENCLAW_IMAGE:-openclaw:local}
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      OPENCLAW_GATEWAY_TOKEN: openclaw-local-token-6
+      ZAI_API_KEY: ${ZAI_API_KEY}
+    volumes:
+      - C:/Users/adeka/.openclaw6:/home/node/.openclaw
+      - C:/Users/adeka/.openclaw6/workspace:/home/node/.openclaw/workspace
+    ports:
+      - "18899:18899"
+      - "18900:18900"
+    init: true
+    restart: unless-stopped
+    command:
+      [
+        "node",
+        "dist/index.js",
+        "gateway",
+        "--bind",
+        "lan",
+        "--port",
+        "18899",
+      ]
+
   openclaw-cli:
     image: ${OPENCLAW_IMAGE:-openclaw:local}
     environment:
@@ -37,6 +171,7 @@ services:
       CLAUDE_AI_SESSION_KEY: ${CLAUDE_AI_SESSION_KEY}
       CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
       CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
+      ZAI_API_KEY: ${ZAI_API_KEY}
     volumes:
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
